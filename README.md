@@ -6,13 +6,18 @@ If you wish to change the size of your PDF files (to annotate on them), you can 
 
 ### Installation
 
+For now, you must install the nightly version of Xournal++, as the latest official release is missing a lot of features to make this plugin possible. You can download it [here](https://github.com/xournalpp/xournalpp/releases). Note that if you use the stable release, you have to zoom in manually when creating an infinity canvas.
+
+<!-- Additionally, to import pdfs you need to install [some dependencies](#Dependencies) -->
+
+0. Open Xournal++ at least once to generate the config folder(s)
 1. Go to the [Config Folder](#Config-Folder) based on your operating system
-2. Go to the "plugins" folders
-3. Download (and extract) this Github repository in that folder.
+2. Go to the "plugins" folder
+3. Download (and extract) this Github repository in that folder
 4. Go to the [Icon Folder](#Icon-Folder) based on your operating system
-5. Copy the icons folder of the repo that folder
+5. Copy the icons folder of this repo into that folder
 6. Open Xournal++
-7. On the top, select "View", then "Toolbars" and at the bottom "Customize", scroll down to the Infinity icon and drag this to your toolbar
+7. On the top, select "Edit", then "Toolbars" and at the bottom "Customize", scroll down to the Infinity icon and Arrow icon icon and drag those to your toolbar
 
 ##### Config Folder
 You can find the folder for your operating system [here](https://xournalpp.github.io/guide/file-locations/) or below:
@@ -34,19 +39,25 @@ Linux: `~/.local/share/icons/hicolor/scalable/actions/`
 ### Usage
 1. Open a (new) note
 2. Click the Infinity icon
-3. Zoom in and hide the sidebar
+3. Hide the sidebar
+4. (If you're not using the nightly build of Xournal++) zoom into the desired zoom level
 
-(For now zooming in manually is still required, but this will be fixed "soon" with a new release of Xournal++. See [the notes](#Notes))
-
-If you prefer to start writing at the top left of the canvas (such that you have infinity to the right/bottom only), there is button to automatically move to the top left. Redo step 7 but then instead of the Infinity icon add the arrow icon.
+If you prefer to start writing at the top left of the canvas (such that you have infinity to the right/bottom only), press the arrow icon.
 
 See the [screenshots](#Screenshots) for examples
 
-### Notes
-For now Xournal++ does not allow zooming in/out automatically using a plugin. This means that after creating the Infinity Canvas, the result will look zoomed out. I recommend going to the bottom right and zooming to 100% (or even further, I like 150% :) )
-This will be possible in a later version of Xournal++ (see [this](https://github.com/xournalpp/xournalpp/pull/5845) PR). I will update the repo according if this has been merged.
+<!--
+### Dependencies
+To import a PDF, you need to install a few things to convert the PDF to an image.
 
-Exporting as pdf will result in very zoomed out pdf files, although you can zoom in and still read the contents
+First install [libvips](https://www.libvips.org/install.html).
+Then install the [`lua-vips`](https://github.com/libvips/lua-vips) rock.
+```
+luarocks install --local lua-vips
+```
+
+For me personally I had to update the LUA_PATH environment variable, which you can get using `luarocks path`
+-->
 
 ### Screenshots
 ![Infinity all around zoomed](/screenshots/center-zoomed.png?raw=true "Infinity all around zoomed")

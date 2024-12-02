@@ -1,4 +1,4 @@
-local infinity = 15000 -- Putting this higher will make Xournal++ lag more and more when zooming in!
+local infinity = 10000 -- Putting this higher will make Xournal++ lag more and more when zooming in!
 local half_infinity=math.floor(infinity / 2)
 
 function initUi()
@@ -13,6 +13,8 @@ function infinityCanvas()
         app.setPageSize(infinity, infinity)
     end
 
+    pcall(app.setZoom, 2.5)
+
     scrollToCenter()
 end
 
@@ -23,4 +25,3 @@ end
 function scrollToStart()
     app.scrollToPos(0, 0, false)
 end
-
